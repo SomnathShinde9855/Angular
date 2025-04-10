@@ -1,1 +1,16 @@
-<p>counter works!</p>
+<div id="counter" class="counter-container">
+  <div class="appStateCount">App State Counter</div>
+  <h2 *ngIf="(initialState$ | async) !== null">
+    Count: {{ initialState$ | async }}
+  </h2>
+  <ng-template #loading>
+    <h2>Loading...</h2>
+  </ng-template>
+  <div class="button-container">
+    <button (click)="increment()">Increment</button>
+    <button (click)="decrement()">Decrement</button>
+    <button (click)="reset()">Reset</button>
+    <input [(ngModel)]="counter" name="setCounter" />
+    <button (click)="setCounter(counter)">Set Counter</button>
+  </div>
+</div>
